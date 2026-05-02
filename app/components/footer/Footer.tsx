@@ -13,7 +13,7 @@ const Footer = () => {
           height={0}
         />
       </Link>
-      <p className='border-t-[1px] border-zinc-800 sm:w-[50%] w-full text-center text-sm pt-4'>© 2024 CritiCore. All rights reserved. Site design by {' '}
+      <p className='border-t-[1px] border-zinc-800 sm:w-[50%] w-full text-center text-sm pt-4'>© 2024 CritiCore. Portfolio Project — Code available under MIT. Demo/mock project. Site design by {' '}
         <Link href="https://ericchour.vercel.app" aria-label="Author's Website" target="_blank" className="footer-link">Eric Chour</Link>.
       </p>
     </footer>

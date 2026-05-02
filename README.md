@@ -2,55 +2,60 @@
 
 CritiCore is a personal web project designed to enhance my development skills by presenting API endpoint data in an intuitive and visually engaging way. The platform focuses on creating a seamless, user-friendly experience, allowing me to practice building features that make complex data accessible and easy to navigate. This project serves as a hands-on opportunity to refine my abilities in web development, API integration, and user interface design.
 
-### Features
+## Tools & Frameworks
 
-- Dynamic game pages based on a game's name
-- User-friendly dynamic searches (only works for Steam searchs due to limited OpenCritic API calls)
-- Responsive design for optimal viewing on various devices
-- Dynamically generated blur data to improve perceived performance by displaying low-resolution placeholders for images while high-resolution images load, enhancing the user experience with faster visual feedback
-- All data is cached using Upstash/Redis, while pages are caching using next revalidation
-- Implemented metadata and sitemap to improve SEO by providing crucial information about the website to search engines, such as the title, description, opengraph, and keywords. This allows search engines to better understand the content of the website and rank it more appropriately in search results
+- **Core:** HTML, CSS, TypeScript
+- **Framework:** Next.js, React
+- **Key Libraries:** `sharp`, `damerau-levenshtein`, `date-fns`, `ioredis`, `steamgriddb`, `cheerio`
+
+## Features
+
+- **Dynamic Game Pages:** Fetches detailed game data to render responsive, interactive game pages
+- **Smart Search:** Intuitive dynamic search system with Steam integration (limited OpenCritic API support)
+- **Responsive Design:** Fully adaptive layout optimized for viewing across various devices
+- **Performance Optimization:** Implements dynamically generated blur placeholders to improve perceived load speeds and visual feedback
+- **Efficient Caching:** Utilizes Upstash/Redis for data caching and Next.js revalidation for optimized performance
+- **SEO Optimization:** Implements metadata, sitemaps, and OpenGraph tags for better search engine visibility
 
 ## Installation
 
 ```bash
 # Clone the repository:
-$ git clone https://github.com/ecdevv/CritiCore.git
+git clone https://github.com/ecdevv/criticore.git
 
 # Navigate into the repository:
-$ cd /CritiCore
+cd criticore
+
+# Copy the example .env file and set up environment variables where its empty:
+cp .env.example .env
 
 # Install dependencies:
-$ npm install
+npm install
 
 # Run the app:
-$ npm start or npm run dev
+npm start or npm run dev
 ```
 
 ## Notes/Potential Improvements/Known Issues
 
 ### Notes
 
-- Made everything from scratch
-- I limited the use of external libraries to these: sharp for blur data generation, date-fns for date formatting, damerau-levenshtein algorithm for searches, ioredis for caching, steamgriddb for backup images, and cheerio for basic web scraping
-- Tried to utilize web scraping minimally; only used to scrape for data for searches due to the length of time it takes to search the applist/appindex and search for games that has a page but is not in the applist/appindex (e.g. soon to be released games)
-- OpenCritic official API calls are using cache: 'force-cache' due to limited API calls, so not sure when the cache truly expires
-- Upstash free tier only allows 10k commands per day, and there is currently minimal error handling when this limit is reached
-- Blur data urls are cached using Upstash and runs a lot of commands; the 10k limit is not optimal at all
-- Deployed version not as optimal/fast as local version due to limitations from the free tier plans of Vercel and Upstash
+- Built entirely from scratch without pre-built templates or boilerplates
+- Limited external libraries to `sharp` (blur data generation), `date-fns` (date formatting), `damerau-levenshtein` (fuzzy search), `ioredis` (caching), `steamgriddb` (image fallbacks), and `cheerio` (lightweight scraping)
+- Minimized web scraping by only using it for search functionality to bypass slow Steam AppList/AppIndex queries and capture unlisted/soon-to-release titles
+- OpenCritic official API requests use cache: 'force-cache' to mitigate rate limits, though exact cache expiration timing remains undefined
+- Upstash free tier is capped at 10k commands/day. Blur data URL generation consumes a high volume of commands, making the current limit a significant bottleneck
+- Live deployment performance is noticeably slower than local development due to execution and resource limits on Vercel and Upstash free tiers
 - Loading and Not-found pages are incomplete
 
 ### Potential Improvements
 
-- Could definitely improve upon the look and appeal overall
-- Add additional features
-- Handle invalid data/errors better
+- Refine overall visual design, spacing, and component aesthetics for a more polished presentation
+- Introduce additional game metadata displays, comparison tools, or related features
+- Implement robust data validation and graceful error boundaries for API failures, cache timeouts, and invalid responses
+- Implement smarter caching strategies (e.g., TTL management, command batching, or tiered storage) to stay within Upstash limits
 
 ## Credits
-
-<strong>Tools & Frameworks:</strong> HTML, CSS, Typescript, Next.js, React
-
-<strong>Libraries Used:</strong> sharp, damerau-levenshtein, date-fns, ioredis, steamgriddb, cheerio
 
 ### Data Sources
   - [OpenCritic](https://rapidapi.com/opencritic-opencritic-default/api/opencritic-api): For game metadata, ratings, reviews, media elements, and related data.
