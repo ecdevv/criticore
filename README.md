@@ -1,10 +1,19 @@
-# CritiCore - Review Aggregator of OpenCritic and Steam Reviews
+<p align="center">
+  <h1 align="center">CritiCore - Review Aggregator of OpenCritic and Steam Reviews</h1>
+  <p align="center">Video game critic aggregator for PC games using Steam and OpenCritic APIs.</p>
+</p>
+
+<p align="center">
+  <a href="https://criticore.vercel.app" target="_blank" rel="noopener noreferrer" align="center">
+    <img src="/public/criticore_preview.webp" alt="Site Preview"/>
+  </a>
+</p>
 
 CritiCore is a personal web project designed to enhance my development skills by presenting API endpoint data in an intuitive and visually engaging way. The platform focuses on creating a seamless, user-friendly experience, allowing me to practice building features that make complex data accessible and easy to navigate. This project serves as a hands-on opportunity to refine my abilities in web development, API integration, and user interface design.
 
 ## Tools & Frameworks
 
-- **Core:** HTML, CSS, TypeScript
+- **Core:** HTML, Tailwind CSS, TypeScript
 - **Framework:** Next.js, React
 - **Key Libraries:** `sharp`, `damerau-levenshtein`, `date-fns`, `ioredis`, `steamgriddb`, `cheerio`
 
