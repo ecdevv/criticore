@@ -29,19 +29,19 @@ CritiCore is a personal web project designed to enhance my development skills by
 ## Installation
 
 ```bash
-# Clone the repository:
+# 1. Clone the repository:
 git clone https://github.com/ecdevv/criticore.git
 
-# Navigate into the repository:
+# 2. Navigate into the repository:
 cd criticore
 
-# Copy the example .env file and set up environment variables where its empty:
+# 3. Copy the example .env file and set up environment variables where its empty:
 cp .env.example .env
 
-# Install dependencies:
+# 4. Install dependencies:
 npm install
 
-# Run the app:
+# 5. Run the app:
 npm start or npm run dev
 ```
 
